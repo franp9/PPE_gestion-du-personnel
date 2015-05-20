@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="public" author="true" classpath="E:\logiciels\eclipse\patchJdbc\mysql-connector-java-5.1.35\mysql-connector-java-5.1.35\mysql-connector-java-5.1.35-bin.jar;F:\logiciels\tout pour eclipse\eclipse-dsl-luna-SR2-win32-x86_64\eclipse\plugins\org.hamcrest.core_1.3.0.v201303031735.jar;F:\logiciels\tout pour eclipse\eclipse-dsl-luna-SR2-win32-x86_64\eclipse\plugins\org.junit_4.11.0.v201303080030\junit.jar" destdir="E:\cours iticparis\2ème année\projet BTS\UV E4\Gestion du personnel de la ligue" doctitle="documentation developpeur" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="commandLine,baseDeDonnees,ihm,testUnitaires,personnel" source="1.8" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
