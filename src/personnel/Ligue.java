@@ -37,6 +37,14 @@ public class Ligue implements Serializable, Comparable<Ligue>
 		GestionPersonnel.getGestionPersonnel().add(this);
 	}
 
+	public Ligue(Employe administrateur,String nom, String adresse, int id) {
+		this.nom = nom;
+		this.adresse =  adresse;
+		this.id = id;
+		this.administrateur = administrateur;
+		
+	}
+
 	/**
 	 * Retourne le nom de la ligue.
 	 * @return le nom de la ligue.

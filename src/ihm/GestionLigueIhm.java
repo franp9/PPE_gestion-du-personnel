@@ -12,12 +12,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
-import baseDeDonnees.BaseEmploye;
+import baseDeDonnees.BaseLigue;
 
 @SuppressWarnings("serial")
 public class GestionLigueIhm extends JFrame {
 
-	private BaseEmploye bdd = new BaseEmploye();
+	private BaseLigue bdd = new BaseLigue();
 	private JTable tableau = new JTable(new GestionLigueTable());
 	private JButton modifier = new JButton("Modifier");
 	private JButton retour = new JButton("retour");
@@ -73,11 +73,10 @@ public class GestionLigueIhm extends JFrame {
 				if (indice > -1) {
 					int id = (int) tableau.getValueAt(indice, 0);
 					String nom = (String) tableau.getValueAt(indice, 1);
-					String prenom = (String) tableau.getValueAt(indice, 2);
-					String mail = (String) tableau.getValueAt(indice, 3);
-					String password = (String) tableau.getValueAt(indice, 4);
-
-					bdd.modifierEmploye(id, nom, prenom, mail, password);
+					String adresse = (String) tableau.getValueAt(indice, 2);
+					String administrateur = (String) tableau.getValueAt(indice, 3);
+				
+					bdd.modifierLigue(id, nom, adresse, administrateur);
 
 				} else
 					//erreur.setVisible(true);

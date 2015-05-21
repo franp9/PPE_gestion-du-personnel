@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.table.AbstractTableModel;
 
 import baseDeDonnees.BaseEmploye;
+import baseDeDonnees.BaseLigue;
 import personnel.Ligue;
 
 /* On a donc créé une classe héritant de AbstractTableModel
@@ -19,19 +20,19 @@ public class GestionLigueTable extends AbstractTableModel {
 
 	private ArrayList<Ligue> ligues = new ArrayList<Ligue>();
 	private String[] entetes = { "id", "nom", "adresse" , "administrateur"};
-	private BaseEmploye bdd = new BaseEmploye();
+	private BaseLigue bdd = new BaseLigue();
 
 	public GestionLigueTable() {
 		super();
 
 		/*
-		 * pour chaque employe x dans la liste baseAffichagePersonnel on
-		 * l'ajoute a la liste personnes a travers la boucle for (Employe x :
-		 * bdd.affichageEmploye()){ personnes.add(x); }
+		 * pour chaque ligue x dans la liste baseAffichage() on
+		 * l'ajoute la liste des ligues a travers la boucle for (ligue x :
+		 * bdd.affichagListes()){ listes.add(x); }
 		 */
-	/*	for (Ligue x : bdd.affichageLigue()) {
+		for (Ligue x : bdd.affichageLigue()) {
 			ligues.add(x);
-		}*/
+		}
 	}
 
 	@Override
