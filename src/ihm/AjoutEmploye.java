@@ -27,32 +27,27 @@ public class AjoutEmploye extends JFrame {
 
 	private BaseEmploye bdd = new BaseEmploye();
 	private JFrame erreur = new JFrame("JOptionPane showMessageDialog example");
+	private JFrame bravo = new JFrame("JOptionPane showMessageDialog example");
 
 	/* ----------- les labels des champs ------------------- */
 	private JLabel lepassword = new JLabel("Mot de passe");
 	private JLabel lemail = new JLabel("Mail");
 	private JLabel leprenom = new JLabel("Prenom");
 	private JLabel lenom = new JLabel("Nom");	
-	private JLabel laligue = new JLabel("Nom Ligue");
-	private JLabel lecode = new JLabel("Type employe");
+	private JLabel laligue = new JLabel("code Ligue");
 	private JLabel ladresse = new JLabel("adresse employe");
 	
 	private JLabel message = new JLabel("vous venez d'ajouter un administrateur!");	
-	private JLabel erreurMail = new JLabel("le mail saisie n'est pas bon!");
-	private JLabel erreurNomLigue = new JLabel("le nom de la ligue n'est pas bon!");
 	/*----------------les textfield-------------------------------*/
 	private JTextField tpass = new JTextField(25);
 	private JTextField tmail = new JTextField(25);
 	private JTextField tprenom = new JTextField(25);
 	private JTextField tnom = new JTextField(25);
-	private JTextField tcode = new JTextField(25);
 	private JTextField tligue = new JTextField(25);
 	private JTextField tadresse = new JTextField(25);
 	
-	private int ligue;
-	private String nom, prenom, mail ,adresse, password, codeEmploye;	
 
-	AjoutEmploye() {
+	public AjoutEmploye() {
 		super();
 		this.setTitle("Menu compte root");
 		this.setVisible(true);
@@ -63,21 +58,9 @@ public class AjoutEmploye extends JFrame {
 		this.pack();
 
 	}
-	AjoutEmploye(String ligue,String nom, String prenom, String mail, String codeEmploye, String adresse,String password){
-		ligue = tligue.getText() ;
-		nom = tnom.getText();
-		prenom = tprenom.getText();
-		mail = tmail.getText();
-		codeEmploye = tcode.getText();
-		adresse = tadresse.getText();
-		password = tpass.getText();
-	}
-
 	/*
 	 * gridlayout permet de classer les elements suivants un ordre de ligne et
 	 * de colonne
-	 */
-	/*
 	 * dans affichage nous agencons la disposition de tous les elements de notre
 	 * interface
 	 */
@@ -101,56 +84,44 @@ public class AjoutEmploye extends JFrame {
 		JPanel menu4 = new JPanel();
 		JPanel menu5 = new JPanel();
 		JPanel menu6 = new JPanel();
-		JPanel menu7 = new JPanel();
 
-		// On définit le layout en lui indiquant qu'il travaillera en ligne
+		/* Le boxLayout permet d'ordonner les composants de notre interface 
+		 * graphique ici nous utilisons BoxLayout.X_AXIS permet de mettre 
+		 * le composant en ligne */
 		menu1.setLayout(new BoxLayout(menu1, BoxLayout.X_AXIS));
 		menu1.add(laligue);
-		// Idem pour cette ligne
 		menu2.setLayout(new BoxLayout(menu2, BoxLayout.X_AXIS));
 		menu2.add(lemail);
-		// Idem pour cette ligne
 		menu3.setLayout(new BoxLayout(menu3, BoxLayout.X_AXIS));
 		menu3.add(lenom);
-		// Idem pour cette ligne
 		menu4.setLayout(new BoxLayout(menu4, BoxLayout.X_AXIS));
 		menu4.add(leprenom);
-		// Idem pour cette ligne
 		menu5.setLayout(new BoxLayout(menu5, BoxLayout.X_AXIS));
-		menu5.add(lecode);
-		// Idem pour cette ligne
+		menu5.add(lepassword);
 		menu6.setLayout(new BoxLayout(menu6, BoxLayout.X_AXIS));
-		menu6.add(lepassword);
-		// Idem pour cette ligne
-		menu7.setLayout(new BoxLayout(menu7, BoxLayout.X_AXIS));
-		menu7.add(ladresse);
+		menu6.add(ladresse);
 
-		// On positionne maintenant ces trois lignes en colonne
+		/* Le BoxLayout.Y_AXIS nous permet d'ordonner nos differentes ligne 
+		 * sur une colonne maintenant ces trois lignes dans des colonnes.
+		 * createRigidArea permet de de creer les espaces entre les lignes  */
 		position.setLayout(new BoxLayout(position, BoxLayout.Y_AXIS));
 		position.add(menu1);
-		/* la ligne suivante permet de créer un espace entre les composants */
 		position.add(Box.createRigidArea(new Dimension(10, 5)));
 		position.add(menu2);
-		/* la ligne suivante permet de créer un espace entre les composants */
 		position.add(Box.createRigidArea(new Dimension(10, 5)));
 		position.add(menu3);
-		/* la ligne suivante permet de créer un espace entre les composants */
 		position.add(Box.createRigidArea(new Dimension(10, 5)));
 		position.add(menu4);
-		/* la ligne suivante permet de créer un espace entre les composants */
 		position.add(Box.createRigidArea(new Dimension(10, 5)));
 		position.add(menu5);
-
 		position.add(Box.createRigidArea(new Dimension(10, 5)));
 		position.add(menu6);
-
-		position.add(Box.createRigidArea(new Dimension(10, 5)));
-		position.add(menu7);
 
 		return position;
 	}
 
-	/* disposition des textfields */
+	/* JPanel texte() permet de disposer l differents textfields (conteneurs)
+	 * dans notre interface graphique*/
 	private JPanel texte() {
 		JPanel position = new JPanel();
 		JPanel menu1 = new JPanel();
@@ -159,30 +130,23 @@ public class AjoutEmploye extends JFrame {
 		JPanel menu4 = new JPanel();
 		JPanel menu5 = new JPanel();
 		JPanel menu6 = new JPanel();
-		JPanel menu7 = new JPanel();
 
-		// On définit le layout en lui indiquant qu'il travaillera en ligne
-		menu4.setLayout(new BoxLayout(menu4, BoxLayout.X_AXIS));
-		menu4.add(tmail);		
-		// Idem pour cette ligne
-		menu3.setLayout(new BoxLayout(menu3, BoxLayout.X_AXIS));
-		menu3.add(tprenom);
-		// Idem pour cette ligne
+		/* On définit le layout en lui indiquant de disposer les composants
+		  sur différentes lignes */
 		menu1.setLayout(new BoxLayout(menu1, BoxLayout.X_AXIS));
 		menu1.add(tligue);
-		// Idem pour cette ligne
 		menu2.setLayout(new BoxLayout(menu2, BoxLayout.X_AXIS));
-		menu2.add(tnom);		
-		/* idem pour cette ligne */
+		menu2.add(tmail);
+		menu3.setLayout(new BoxLayout(menu3, BoxLayout.X_AXIS));
+		menu3.add(tnom);
+		menu4.setLayout(new BoxLayout(menu4, BoxLayout.X_AXIS));
+		menu4.add(tprenom);
 		menu5.setLayout(new BoxLayout(menu5, BoxLayout.X_AXIS));
 		menu5.add(tpass);
-		/* idem pour cette ligne */
 		menu6.setLayout(new BoxLayout(menu6, BoxLayout.X_AXIS));
-		menu6.add(tcode);
+		menu6.add(tadresse);
 
-		menu7.setLayout(new BoxLayout(menu7, BoxLayout.X_AXIS));
-		menu7.add(tadresse);
-		// On positionne maintenant ces lignes en colonne
+		/* On positionne maintenant ces lignes sur une  colonne */
 		position.setLayout(new BoxLayout(position, BoxLayout.Y_AXIS));
 		position.add(menu1);
 		position.add(menu2);
@@ -190,34 +154,31 @@ public class AjoutEmploye extends JFrame {
 		position.add(menu4);
 		position.add(menu5);
 		position.add(menu6);
-		position.add(menu7);
 
 		return position;
 	}
 
-	/* disposition des boutons */
+	/* Le panel bouton() permet de disposer les les boutons sur notre
+	 * interface  */
 
 	private JPanel bouton() {
 		JPanel position = new JPanel();
 		JPanel menu1 = new JPanel();
 		JPanel menu2 = new JPanel();
-		// On définit le layout en lui indiquant qu'il travaillera en ligne
+		
 		menu1.setLayout(new BoxLayout(menu1, BoxLayout.X_AXIS));
 		menu1.add(ajouter());
-		// Idem pour cette ligne
 		menu2.setLayout(new BoxLayout(menu2, BoxLayout.X_AXIS));
 		menu2.add(retour());
-
 		position.setLayout(new BoxLayout(position, BoxLayout.X_AXIS));
 		/*
-		 * setborderlyaout permet de positionner le layout dans son conteneur le
+		 * setborderlayout permet de positionner le layout dans son conteneur le
 		 * premier chiffre est sa distance avec la bordure superieure le second
 		 * est sa distance selon la bordure gauche du conteneur le dernier
 		 * chiffre sa position ou distance de la bordure droite du conteneur
 		 */
 		position.setBorder(BorderFactory.createEmptyBorder(25, 125, 0, 0));
 		position.add(menu1);
-		/* la ligne suivante permet de créer un espace entre les composants */
 		position.add(Box.createRigidArea(new Dimension(5, 0)));
 		position.add(menu2);
 
@@ -257,16 +218,18 @@ public class AjoutEmploye extends JFrame {
 		return retour;
 	}
 
-	/*-----fonction du bouton ajouter permettant l'ajout d'un employé dans la base de données*/
+	/*-----le bouton ajouter() permet l'ajout d'un employé dans la base de données*/
 	private JButton ajouter() {
 		JButton ajouter = new JButton("Ajouter");
 		ajouter.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 
 				if (verificationChamp()) {
-					/* on teste que le mail est bon */					
-					bdd.ajoutEmploye(ligue,mail,nom,prenom,password,adresse);
-					message.setVisible(true);
+									
+					bdd.ajoutEmploye(Integer.parseInt(tligue.getText()),tnom.getText(),
+										tprenom.getText(),tmail.getText(),tpass.getText(),tadresse.getText());
+					JOptionPane.showMessageDialog(bravo, 
+							"Félicitation vous venez d\'ajouter un employé");					
 					
 				} else {
 					/*

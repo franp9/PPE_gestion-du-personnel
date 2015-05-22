@@ -23,7 +23,7 @@ public class GestionEmployeTABLE extends AbstractTableModel {
 	 * compris dans l'entete de notre tableau contenant
 	 * toutes les données */
 	private String[] entetes = { "id", "nom", "Prenom", "mail", "Password",
-			"Ligue", "code_employe" };
+			"Ligue"};
 	private BaseEmploye bdd = new BaseEmploye();
 
 	public GestionEmployeTABLE() {

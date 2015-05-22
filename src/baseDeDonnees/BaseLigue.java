@@ -103,7 +103,7 @@ public class BaseLigue extends BaseDeDonnees {
 	}
 
 	/*
-	 * la methode nomsLigues() perùmet de vérifier si le nom de la ligue entré
+	 * la methode nomsLigues() permet de vérifier si le nom de la ligue entré
 	 * dans le le tableau est correcte permettant ainsi d'évité d' ajouter un
 	 * nom de ligue qui n existe pas dans la base de données
 	 */
@@ -135,37 +135,6 @@ public class BaseLigue extends BaseDeDonnees {
 
 		return liste;
 	}
-
-
-	public void ajoutEmploye(int idligue,String mail,String nom, String prenom,
-			String password, String adresse) {
-		connect();
-		try {
-			requetes = this.connexion
- 					.prepareCall("call ajoutEmploye(?,?,?,?,?,?)");
-
-			/* inserion des variables */
-			requetes.setInt(1, idligue);
-			requetes.setString(2, mail);
-			requetes.setString(3, nom);
-			requetes.setString(4, prenom);
-			requetes.setString(5, password);
-			requetes.setString(6, adresse);
-			
-
-			/* execution de la requete */
-			requetes.execute();
-
-		} catch (SQLException e) {
-			// System.out.println("pb requete");
-			e.printStackTrace();
-		} finally {
-			close();
-		}
-	}
-
-
-	
 
 
 

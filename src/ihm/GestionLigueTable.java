@@ -24,7 +24,6 @@ public class GestionLigueTable extends AbstractTableModel {
 
 	public GestionLigueTable() {
 		super();
-
 		/*
 		 * pour chaque ligue x dans la liste baseAffichage() on
 		 * l'ajoute la liste des ligues a travers la boucle for (ligue x :

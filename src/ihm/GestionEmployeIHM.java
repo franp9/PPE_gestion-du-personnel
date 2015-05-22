@@ -94,7 +94,10 @@ public class GestionEmployeIHM extends JFrame {
 					 * modifier pour mettre a jour les éléments que nous 
 					 * souaitons dans le tableau*/
 					bdd.modifierEmploye(id, nom, prenom, mail, password);
+				
 					erreur.setVisible(false);
+					
+					System.out.println("ok");
 
 				} else
 					//erreur.setVisible(true);

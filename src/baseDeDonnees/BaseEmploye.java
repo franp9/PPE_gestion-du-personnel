@@ -178,7 +178,7 @@ public class BaseEmploye extends BaseDeDonnees {
 	}
 
 
-	public void ajoutEmploye(int idligue,String mail,String nom, String prenom,
+	public void ajoutEmploye(int idligue,String nom, String prenom,String mail,
 			String password, String adresse) {
 		connect();
 		try {
@@ -187,9 +187,9 @@ public class BaseEmploye extends BaseDeDonnees {
 
 			/* inserion des variables */
 			requetes.setInt(1, idligue);
-			requetes.setString(2, mail);
-			requetes.setString(3, nom);
-			requetes.setString(4, prenom);
+			requetes.setString(2, nom);
+			requetes.setString(3, prenom);
+			requetes.setString(4, mail);
 			requetes.setString(5, password);
 			requetes.setString(6, adresse);
 			
