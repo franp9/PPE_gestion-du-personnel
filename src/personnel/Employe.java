@@ -27,6 +27,12 @@ public class Employe implements Serializable, Comparable<Employe>
 		this.id = id;
 	}
 	
+	public Employe(int id , String prenom, String nom){
+		this.id =id;
+		this.prenom = prenom;
+		this.nom = nom;
+	}
+	
 	/**
 	 * Retourne vrai ssi l'employé est administrateur de la ligue 
 	 * passée en paramètre.
@@ -175,11 +181,6 @@ public class Employe implements Serializable, Comparable<Employe>
 	@Override
 	public String toString()
 	{
-		String res = nom + " " + prenom + " " + mail + " (";
-		if (estRoot())
-			res += "super-utilisateur";
-		else
-			res += ligue.toString();
-		return res + ")";
+		return nom + " " + prenom;
 	}
 }

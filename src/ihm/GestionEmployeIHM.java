@@ -83,12 +83,6 @@ public class GestionEmployeIHM extends JFrame {
 					String password = (String) tableau.getValueAt(indice, 4);
 					
 					
-					System.out.println(id);
-					System.out.println(nom);
-					System.out.println(prenom);
-					System.out.println(password);
-					System.out.println(mail);
-					
 					/*bdd.modifierEmploye() prend en parametre les différents 
 					 * éléments de notre tableau que nous souhaitons 
 					 * modifier pour mettre a jour les éléments que nous 

@@ -8,6 +8,7 @@ import javax.swing.table.AbstractTableModel;
 
 import baseDeDonnees.BaseEmploye;
 import baseDeDonnees.BaseLigue;
+import personnel.Employe;
 import personnel.Ligue;
 
 /* On a donc créé une classe héritant de AbstractTableModel
@@ -19,7 +20,7 @@ import personnel.Ligue;
 public class GestionLigueTable extends AbstractTableModel {
 
 	private ArrayList<Ligue> ligues = new ArrayList<Ligue>();
-	private String[] entetes = { "id", "nom", "adresse" , "administrateur"};
+	private String[] entetes = { "id", "nom", "adresse" , "nom administrateur" , "prenom admmnistrateur",};
 	private BaseLigue bdd = new BaseLigue();
 
 	public GestionLigueTable() {
@@ -28,6 +29,7 @@ public class GestionLigueTable extends AbstractTableModel {
 		 * pour chaque ligue x dans la liste baseAffichage() on
 		 * l'ajoute la liste des ligues a travers la boucle for (ligue x :
 		 * bdd.affichagListes()){ listes.add(x); }
+		 * ainsi cette boucle for sert a remplir le tableau
 		 */
 		for (Ligue x : bdd.affichageLigue()) {
 			ligues.add(x);
@@ -70,7 +72,9 @@ public class GestionLigueTable extends AbstractTableModel {
 		case 2:
 			return ligues.get(rowIndex).getadresse();
 		case 3:
-			return ligues.get(rowIndex).getAdministrateur();
+			return ligues.get(rowIndex).getnomAdministrateur();
+		case 4:
+			return ligues.get(rowIndex).getprenomAdministrateur();
 		}
 
 		return null;
@@ -104,15 +108,11 @@ public class GestionLigueTable extends AbstractTableModel {
 			case 2:
 				ligue.setadresse(aValue.toString());
 				break;
-	/*		case 3:
-				ligue.setAdministrateur(aValue.toString());
-				break;*/
-			case 3:
-				if (bdd.nomsLigues().contains(aValue.toString())) {
-					System.out.println("yeah");
-				} else {
-					// APPEL ERREUR : ligue non existante
-				}
+       		case 3:
+				ligue.setnomAdministrateur(aValue.toString());
+				break;
+			case 4:
+				ligue.setprenomAdministrateur(aValue.toString());
 				break;
 			}
 		}

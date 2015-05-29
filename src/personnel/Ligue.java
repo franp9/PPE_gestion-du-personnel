@@ -20,6 +20,8 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	private SortedSet<Employe> employes;
 	private Employe administrateur;
 	private String adresse;
+	private String nomAdministrateur;
+	private String prenomAdministrateur;
 	private int id;
 	
 	/**
@@ -41,8 +43,15 @@ public class Ligue implements Serializable, Comparable<Ligue>
 		this.nom = nom;
 		this.adresse =  adresse;
 		this.id = id;
-		this.administrateur = administrateur;
-		
+		this.administrateur = administrateur;		
+	}
+	
+	public Ligue(String nomAdministrateur, String prenomAdministrateur,String nom, String adresse, int id){
+		this.nom = nom;
+		this.adresse =  adresse;
+		this.id = id;
+		this.nomAdministrateur = nomAdministrateur;	
+		this.prenomAdministrateur = prenomAdministrateur;	
 	}
 
 	/**
@@ -158,5 +167,25 @@ public class Ligue implements Serializable, Comparable<Ligue>
 	public void setadresse(String adresse) {
 		// TODO Auto-generated method stub
 		this.adresse = adresse;
+	}
+
+	public Object getnomAdministrateur() {
+		// TODO Auto-generated method stub
+		return nomAdministrateur;
+	}
+
+	public Object getprenomAdministrateur() {
+		// TODO Auto-generated method stub
+		return prenomAdministrateur;
+	}
+
+	public void setnomAdministrateur(String string) {
+		this.nomAdministrateur = string;
+		
+	}
+
+	public void setprenomAdministrateur(String string) {
+		this.nomAdministrateur = string;
+		
 	}
 }
