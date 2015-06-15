@@ -98,8 +98,7 @@ public class BaseEmploye extends BaseDeDonnees {
 							.getString("prenom_employe"), resultat
 							.getString("email_employe"), resultat
 							.getString("mdp_employe"), resultat
-							.getInt("id_employe")));
-							
+							.getInt("id_employe")));							
 				}
 			}
 

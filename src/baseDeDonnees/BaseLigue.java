@@ -5,9 +5,12 @@ import personnel.*;
 import java.sql.*;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 public class BaseLigue extends BaseDeDonnees {
 	private CallableStatement requetes;
 	private ResultSet resultat;
+	private JOptionPane erreur = new JOptionPane();
 
 	/*
 	 * le contructeurr baseLigue() fait appel a la methode super() pemettant
@@ -86,8 +89,11 @@ public class BaseLigue extends BaseDeDonnees {
 			requetes.execute();
 
 		} catch (SQLException e) {
-			// System.out.println("pb requete");
-			e.printStackTrace();
+			System.out.println("pb requete");
+			//e.printStackTrace();
+			erreur.showMessageDialog(null, "Désolé, les modifications sur les noms et prenoms  "
+											+ "se font dans gesttion des employes!",
+					  "Erreur", JOptionPane.ERROR_MESSAGE);
 		} finally {
 			close();
 		}
